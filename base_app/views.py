@@ -3,3 +3,7 @@ from django.views.generic.list import ListView
 from .models import Task
 
 # Create your views here.
+class TaskList(LoginRequiredMixin, ListView):
+    model = Task
+    template_name = 'base_app/index.html'
+    context_object_name = 'list'
