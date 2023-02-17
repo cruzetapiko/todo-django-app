@@ -2,5 +2,18 @@
 {% load static %}
 
 {% block content %}
+<div class="header-bar">
+    <a href="">&#8592; Back</a>
+</div>
 
+<div class="card-body">
+    <h3>Login</h3>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Register" >
+    </form>
+
+    <p>Already have an account?:<a href="{% url 'login' %}">Log In</a></p>
+</div>
 {% endblock content %}
