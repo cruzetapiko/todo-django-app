@@ -3,4 +3,26 @@
 
 {% block content %}
 
+<div class="task-items-wrapper">
+    {% for tasks in list %}
+        <div class="task-wrapper">
+        {% if tasks.complete %}
+            <div class="task-title">
+                <div class="task-complete-icon"></div>
+                <i><s><a href=""> {{tasks}}</a></s></i>
+            </div>
+            <a class="delete-link" href="">Delete</a>
+        {% else %}
+            <div class="task-title">
+                <div class="task-incomplete-icon"></div>
+                <a href=""> {{tasks}}</a>
+            </div>
+            <a class="delete-link" href="">Delete</a>
+        {% endif %}
+    </div>
+</div>
+{% empty %}
+<h3>no tasks yet</h3>
+{% endfor %}
+
 {% endblock content %}
