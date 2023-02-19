@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Task
 
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 from django.views.generic.list import ListView 
 from django.urls import reverse_lazy
 
@@ -46,3 +48,15 @@ class TaskList(LoginRequiredMixin,ListView):
     model = Task
     template_name = 'base_app/index.html'
     context_object_name = 'list'
+
+class TaskUpdate(LoginRequiredMixin, UpdateView):
+    model = Task
+    template_name = 'base_app/update.html'
+    fields = '__all__'
+    success_url = reverse_lazy('index')
+
+class TaskCreate(LoginRequiredMixin, CreateView):
+    model = Task
+    template_name = 'base_app/create.html'
+    fields = '__all__'
+    success_url = reverse_lazy('index')

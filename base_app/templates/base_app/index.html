@@ -15,6 +15,7 @@
     {% else %}
       <a href="{% url 'login' %}">Log In</a>
     {% endif %}
+    <a href="{% url 'create' %}">create</a>
   </div>
 
 <div class="task-items-wrapper">
@@ -23,13 +24,13 @@
         {% if tasks.complete %}
             <div class="task-title">
                 <div class="task-complete-icon"></div>
-                <i><s><a href=""> {{tasks}}</a></s></i>
+                <i><s><a href="{% url 'update' tasks.id %}"> {{tasks}}</a></s></i>
             </div>
             <a class="delete-link" href="">Delete</a>
         {% else %}
             <div class="task-title">
                 <div class="task-incomplete-icon"></div>
-                <a href=""> {{tasks}}</a>
+                <a href="{% url 'update' tasks.id %}"> {{tasks}}</a>
             </div>
             <a class="delete-link" href="">Delete</a>
         {% endif %}

@@ -8,4 +8,6 @@ urlpatterns = [
     path('register/', RegistrationPage.as_view() ,name='register'),
 
     path('', TaskList.as_view(), name='index'),
+    path('create', TaskCreate.as_view(), name='create'),
+    path('update/<str:pk>/', TaskUpdate.as_view(), name='update'),
 ]
